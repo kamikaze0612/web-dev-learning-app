@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "instruction": "За ингээд HTML -д тавтай морил тэ. Одоо гоё шаана, ална тэ. HTML -д бол h1 гээд байдаг байхгүй юу. Гарчиг гээд ойлгочих за юу. Дараах текстийг h1 дотор оруулаадах Travel App",
+    "startingCode": {
+      "html": "<h1>Hello World</h1>",
+      "css": ""
+    },
+    "checkingCode": {
+      "html": "<h1>TravelApp</h1>",
+      "css": ""
+    }
+  },
+  {
+    "id": 2,
+    "instruction": "Дараах агуулгын ач холбогдлыг илэрхийлэхийн тулд h1-ээс h6 хүртэлх гарчгийн элементүүдийг ашигладаг. Тоо бага байх тусам ач холбогдол өндөр байх тул h2 элемент нь h1 элементээс бага ач холбогдолтой. Хуудас бүр дээр зөвхөн нэг h1 элемент ашиглаж, чухал ач холбогдол багатай гарчгийн доор байрлуул. h1 элементийн доор дараах тексттэй h2 элемент нэмнэ: Travel Photos",
+    "startingCode": {
+      "html": "<h1>Travel App</h1>",
+      "css": ""
+    },
+    "checkingCode": {
+      "html": "<h1>TravelApp</h1>\n<h2>TravelPhotos",
+      "css": ""
+    }
+  },
+  {
+    "id": 3,
+    "instruction": "p элементийг вэб сайт дээр текстийн догол мөр үүсгэхэд ашигладаг. h2 элементийн доор p элемент үүсгээд дараах бичвэрээр тохируулна уу: See more travel photos in our gallery",
+    "startingCode": {
+      "html": "<h1>Travel App</h1>\n<h2>Travel Photos</h2>",
+      "css": ""
+    },
+    "checkingCode": {
+      "html": "<h1>TravelApp</h1>\n<h2>TravelPhotos</h2>\n<p>Seemoretravelphotosinourgallery</p>",
+      "css": ""
+    }
+  },
+  {
+    "id": 4,
+    "instruction": "HTML5 нь агуулгын янз бүрийн хэсгийг төлөөлөх элементүүдтэй. Эдгээр элементүүд нь таны HTML-г уншихад хялбар болгож, хайлтын системийн оновчлол (SEO) болон хүртээмжийг сайжруулахад тусалдаг. Энэ хуудасны үндсэн хэсгийг дүрслэхийн тулд h1 элементийн өмнө <main> эхлэл, p элементийн ард хаалтын таг </main> нэмнэ.",
+    "startingCode": {
+      "html": "<h1>Travel App</h1>\n<h2>Travel Photos</h2>\n<p>See more travel photos in our gallery</p>",
+      "css": ""
+    },
+    "checkingCode": {
+      "html": "<main><h1>TravelApp</h1>\n<h2>TravelPhotos</h2>\n<p>Seemoretravelphotosinourgallery</p></main>",
+      "css": ""
+    }
+  },
+  {
+    "id": 5,
+    "instruction": "Өмнөх алхамд бид h1, h2, p элементүүдийг үндсэн элемент дотор байрлуулсан. Үүнийг \"үүрлэх\" гэж нэрлэдэг. Оруулсан элементүүдийг гадна талын элементийн баруун талд хоёр зайд байрлуулахаа мартуузай. Энэ зайг догол гэж нэрлэдэг бөгөөд HTML-г уншихад хялбар болгоход ашигладаг. Доорх кодонд h1, h2 болон үндсэн элементүүд нь хоёр зайтай доголтой байна. Үүний нэгэн адил, зөв ​​догол оруулахын тулд p элементийн өмнө хоёр зай нэмэхийн тулд гар дээрх хоосон зайг ашиглана уу.",
+    "startingCode": {
+      "html": "<main>\n\t<h1>Travel App</h1>\n\t<h2>Travel Photos</h2>\n<p>See more travel photos in our gallery</p>\n</main>",
+      "css": ""
+    },
+    "checkingCode": {
+      "html": "<main>\n<h1>TravelApp</h1>\n<h2>TravelPhotos</h2>\n<p>Seemoretravelphotosinourgallery</p>\n</main>",
+      "css": ""
+    }
+  },
+  {
+    "id": 6,
+    "instruction": "img элемент нь вэбсайтдаа зураг нэмэх боломжийг олгодог. img элемент нь эхлэл шошготой боловч төгсгөлийн таг байхгүй. (<img />) Хаах таггүй элементийн тагуудыг өөрөө хаагддаг таг гэж нэрлэдэг. p элементийн доор img элемент нэмнэ үү. Энэ үед зураг таны хөтөч дээр харагдахгүй.",
+    "startingCode": {
+      "html": "<main>\n\t<h1>Travel App</h1>\n\t<h2>Travel Photos</h2>\n\t<p>See more travel photos in our gallery</p>\n</main>",
+      "css": ""
+    },
+    "checkingCode": {
+      "html": "<main>\n<h1>TravelApp</h1>\n<h2>TravelPhotos</h2>\n<p>Seemoretravelphotosinourgallery</p>\n<img/>\n</main>",
+      "css": ""
+    }
+  },
+  {
+    "id": 7,
+    "instruction": "HTML шинж чанарууд нь элементийн үйл ажиллагааг хянахын тулд элементийн нээлтийн шошгонд ашиглагддаг тусгай үгс юм. img элементийн src шинж чанар нь зургийн URL-г (зураг хаана байрлаж байгааг) зааж өгдөг. Зураг руу чиглэсэн src атрибут бүхий img элементийн жишээг энд үзүүлэв.jpg:\n<img src=\"image.jpg\">\nОдоо байгаа img элементэд src атрибут нэмээд, энэ URL-ыг \"Заавал зааж өгнө үү\" гэж зааж өгнө үү. : https://www.toursmongolia.com/uploads/best_time_to_travel_mongolia.jpg",
+    "startingCode": {
+      "html": "<main>\n\t<h1>Travel App</h1>\n\t<h2>Travel Photos</h2>\n\t<p>See more travel photos in our gallery</p>\n\t<img />\n</main>",
+      "css": ""
+    },
+    "checkingCode": {
+      "html": "<main>\n<h1>TravelApp</h1>\n<h2>TravelPhotos</h2>\n<p>Seemoretravelphotosinourgallery</p>\n<imgsrc=\"https://www.toursmongolia.com/uploads/best_time_to_travel_mongolia.jpg\"/>\n</main>",
+      "css": ""
+    }
+  },
+  {
+    "id": 8,
+    "instruction": "Alt шинж чанарыг img элементүүд дээр үргэлж тохируулаарай. Alt шинж чанар дахь текстийг дэлгэц уншигчид хүртээмжийг сайжруулахын тулд ашигладаг бөгөөд зураг ачаалж чадахгүй үед харагдана. Жишээлбэл, хэрэв та <img src=\"dog.jpg\" alt=\"A dog\"> гэж бичвэл alt шинж чанарын текст нь нохой болно. img элементэд alt атрибут нэмээд энэ бичвэрийг тохируулна уу: A mongolian Ger and sand desert",
+    "startingCode": {
+      "html": "<main>\n\t<h1>Travel App</h1>\n\t<h2>Travel Photos</h2>\n\t<p>See more travel photos in our gallery</p>\n\t<img src=\"https://www.toursmongolia.com/uploads/best_time_to_travel_mongolia.jpg\" />\n</main>",
+      "css": ""
+    },
+    "checkingCode": {
+      "html": "<main>\n<h1>TravelApp</h1>\n<h2>TravelPhotos</h2>\n<p>Seemoretravelphotosinourgallery</p>\n<imgsrc=\"https://www.toursmongolia.com/uploads/best_time_to_travel_mongolia.jpg\"alt=\"AmongolianGerandsanddesert\"/>\n</main>",
+      "css": ""
+    }
+  },
+  {
+    "id": 9,
+    "instruction": "Зангуу (a) элементүүд нь бусад хуудсуудтай холбох боломжийг олгодог. Жишээлбэл, <a href=\"https://www.google.com/\"></a> Google-тэй холбогдох болно. Догол мөрийн элементийн дараа https://www.toursmongolia.com/ руу холбогдох зангуу элемент нэмнэ. Одоогоор урьдчилан үзэх хэсэгт ямар ч холбоос харагдахгүй.",
+    "startingCode": {
+      "html": "<main>\n\t<h1>Travel App</h1>\n\t<h2>Travel Photos</h2>\n\t<p>See more travel photos in our gallery</p>\n\t<img src=\"https://www.toursmongolia.com/uploads/best_time_to_travel_mongolia.jpg\" alt=\"A mongolian Ger and sand desert\" />\n</main>",
+      "css": ""
+    },
+    "checkingCode": {
+      "html": "<main>\n<h1>TravelApp</h1>\n<h2>TravelPhotos</h2>\n<p>Seemoretravelphotosinourgallery</p>\n<imgsrc=\"https://www.toursmongolia.com/uploads/best_time_to_travel_mongolia.jpg\"alt=\"AmongolianGerandsanddesert\"/>\n<ahref=\"https://www.toursmongolia.com/\"></a>\n</main>",
+      "css": ""
+    }
+  },
+  {
+    "id": 10,
+    "instruction": "Холбоосын текстийг зангуу (a) элементийн эхлэл ба төгсгөлийн шошгоны хооронд байрлуулна. Жишээ нь, хэрэв та <a href=\"https://www.google.com/\">google рүү очихын тулд энд дарна уу</a> гэж бичвэл холбоос дээр энд дарж google рүү очих текст байх болно. link to more photos of Mongolia зангуу текстийн холбоосыг зангуу элемент дээр нэмнэ үү. Энэ нь холбоосын текст байх болно.",
+    "startingCode": {
+      "html": "<main>\n\t<h1>Travel App</h1>\n\t<h2>Travel Photos</h2>\n\t<p>See more travel photos in our gallery</p>\n\t<img src=\"https://www.toursmongolia.com/uploads/best_time_to_travel_mongolia.jpg\" alt=\"A mongolian Ger and sand desert\" />\n\t<a href=\"https://www.toursmongolia.com/\"></a>\n</main>",
+      "css": ""
+    },
+    "checkingCode": {
+      "html": "<main>\n<h1>TravelApp</h1>\n<h2>TravelPhotos</h2>\n<p>Seemoretravelphotosinourgallery</p>\n<imgsrc=\"https://www.toursmongolia.com/uploads/best_time_to_travel_mongolia.jpg\"alt=\"AmongolianGerandsanddesert\"/>\n<ahref=\"https://www.toursmongolia.com/\">linktomorephotosofMongolia</a>\n</main>",
+      "css": ""
+    }
+  }
+]
