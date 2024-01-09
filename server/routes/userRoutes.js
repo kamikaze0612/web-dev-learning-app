@@ -11,21 +11,19 @@ const router = express.Router();
 router.route("/signup").post(authController.signup);
 router.route("/login").post(authController.login);
 
+router.use(authController.protect);
+
 /* Updating password */
-router.patch(
-  "/updateMyPassword",
-  authController.protect,
-  authController.updatePassword
-);
+router.patch("/updateMyPassword", authController.updatePassword);
+
+router.use(authController.restrictTo("admin"));
+
+router.route("/").get(userController.getUsers).post(userController.createUser);
 
 router
-  .route("/")
-  .get(
-    authController.protect,
-    authController.restrictTo("admin"),
-    userController.getUsers
-  )
-  .post(userController.createUser);
-router.route("/:id").get(userController.getUser);
+  .route("/:id")
+  .get(userController.getUser)
+  .patch(userController.updateUser)
+  .delete(userController.deleteUser);
 
 module.exports = router;

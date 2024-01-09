@@ -68,13 +68,13 @@ function Modal({ onShow }) {
     <Overlay>
       <StyledModal>
         <Icon src="/correct.svg" />
-        <Heading>正解!</Heading>
-        <Text>おめでとうございます!よくできました</Text>
+        <Heading>Баяр хүргэе!</Heading>
+        <Text>Зөв хариуллаа. Дараагийн шат руу явцгаая</Text>
         <Button
           onClick={() => onShow(false)}
           to={`step/${id != data.length ? +id + 1 : 1}`}
         >
-          次へ進む
+          Шилжих
         </Button>
       </StyledModal>
     </Overlay>

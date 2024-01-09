@@ -32,10 +32,11 @@ export default function InstructionProvider({ children }) {
     async function fetchSteps() {
       try {
         dispatch({ type: "data/loading" });
-        const res = await fetch(`http://localhost:3000/steps`);
+        const res = await fetch(`http://localhost:3000/api/v1/instructions`);
         const data = await res.json();
 
-        dispatch({ type: "data/loaded", payload: data });
+        dispatch({ type: "data/loaded", payload: data.data.instructions });
+        // dispatch({ type: "data/loaded", payload: data });
       } catch (err) {
         console.log(err);
         throw new Error("Something went wrong!");

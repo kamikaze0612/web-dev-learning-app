@@ -5,13 +5,26 @@ const authController = require("../controllers/authController");
 
 const router = express.Router();
 
+// router.use(authController.protect);
+
 router
   .route("/")
-  .get(authController.protect, instructionController.getAllInstructions)
+  .get(instructionController.getAllInstructions)
   .post(
-    authController.protect,
     authController.restrictTo("admin"),
     instructionController.createInstruction
+  );
+
+router
+  .route("/:id")
+  .get(instructionController.getInstruction)
+  .patch(
+    authController.restrictTo("admin"),
+    instructionController.updateInstruction
+  )
+  .delete(
+    authController.restrictTo("admin"),
+    instructionController.deleteInstruction
   );
 
 module.exports = router;

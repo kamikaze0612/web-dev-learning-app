@@ -24,8 +24,9 @@ const StyledPane = styled.div`
 `;
 
 const Preview = styled.iframe`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  display: block;
   border: 0;
 `;
 
@@ -103,7 +104,7 @@ function AppLayout() {
     ) {
       setShowModal(true);
     } else {
-      toast.error("間違えています、一度確認してください");
+      toast.error("Дахин нэг удаа нягтална уу.");
     }
   };
 
@@ -140,8 +141,8 @@ function AppLayout() {
           </StyledPane>
         </Pane>
         <Pane minSize="50vw">
-          <div>
-            <Preview srcDoc={outputValue}></Preview>
+          <div style={{ height: "100vh" }}>
+            <Preview allow="fullscreen" srcDoc={outputValue}></Preview>
           </div>
         </Pane>
       </SplitPane>

@@ -60,6 +60,7 @@ exports.signup = catchAsync(async (req, res, next) => {
 });
 
 exports.login = catchAsync(async (req, res, next) => {
+  console.log(req);
   const { email: reqEmail, password: reqPassword } = req.body;
 
   /* 1) Checking whether email or password exist */
@@ -93,6 +94,8 @@ exports.protect = catchAsync(async (req, res, next) => {
     return next(
       new AppError("You are not logged in! Please log in to get access", 401)
     );
+  } else if (req.cookies.jwt) {
+    token = req.cookies.jwt;
   }
 
   /* 2) Verification of JWT */

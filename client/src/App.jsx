@@ -1,11 +1,12 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-
-import AppLayout from "./ui/AppLayout";
-import GlobalStyles from "./styles/globalStyles";
-import Instruction from "./ui/Instruction";
-import InstructionProvider from "./context/InstructionContext";
-import Homepage from "./ui/Homepage";
 import { Toaster } from "react-hot-toast";
+
+import GlobalStyles from "./styles/globalStyles";
+import InstructionProvider from "./context/InstructionContext";
+import AppLayout from "./ui/AppLayout";
+import Instruction from "./ui/Instruction";
+import Homepage from "./ui/Homepage";
+import Login from "./features/authentication/Login";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route index element={<Navigate to="step/1" replace />} />
             <Route path="step/:id" element={<Instruction />} />
           </Route>
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
       <Toaster

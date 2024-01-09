@@ -5,6 +5,8 @@ const { rateLimit } = require("express-rate-limit");
 const helmet = require("helmet");
 const hpp = require("hpp");
 const mongoSanitize = require("express-mongo-sanitize");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 const instructionRouter = require("./routes/instructionRoutes");
 const userRouter = require("./routes/userRoutes");
@@ -33,6 +35,10 @@ app.use("/api", limiter);
 
 /* Parsing request's body to json format */
 app.use(express.json({ limit: "10kb" }));
+app.use(cookieParser());
+
+/* CORS */
+app.use(cors());
 
 /* Data sanitization against NoSQL query injection */
 app.use(mongoSanitize());

@@ -38,7 +38,7 @@ function Homepage() {
 
   return (
     <StyledHomepage>
-      <Heading>WEB開発学習</Heading>
+      <Heading>Вэб хөгжүүлэлт сургалт</Heading>
       <StartButton onClick={() => navigate("/lesson")}>Start</StartButton>
     </StyledHomepage>
   );

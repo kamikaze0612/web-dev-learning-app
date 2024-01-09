@@ -36,7 +36,7 @@ function Instruction() {
   return data ? (
     <StyledInstruction>
       <Container>
-        <Heading>Алхам {data[id - 1].id}</Heading>
+        <Heading>Алхам {id}</Heading>
         <InstructionText>{data[id - 1].instruction}</InstructionText>
       </Container>
     </StyledInstruction>
