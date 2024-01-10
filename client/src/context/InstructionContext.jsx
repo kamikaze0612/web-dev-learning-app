@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
 
 const InstructionContext = createContext();
@@ -32,8 +33,15 @@ export default function InstructionProvider({ children }) {
     async function fetchSteps() {
       try {
         dispatch({ type: "data/loading" });
-        const res = await fetch(`http://localhost:3000/api/v1/instructions`);
-        const data = await res.json();
+
+        const { data } = await axios.get(
+          "http://localhost:3000/api/v1/instructions",
+          {
+            withCredentials: true,
+          }
+        );
+        console.log(data);
+        // const data = await res.json();
 
         dispatch({ type: "data/loaded", payload: data.data.instructions });
         // dispatch({ type: "data/loaded", payload: data });
@@ -44,10 +52,10 @@ export default function InstructionProvider({ children }) {
     }
 
     fetchSteps();
-  }, []);
+  }, [dispatch]);
 
   return (
-    <InstructionContext.Provider value={{ data, isLoading }}>
+    <InstructionContext.Provider value={{ data, isLoading, dispatch }}>
       {children}
     </InstructionContext.Provider>
   );

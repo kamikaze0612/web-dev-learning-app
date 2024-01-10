@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useInstruction } from "../context/InstructionContext";
-import Spinner from "./Spinner";
 
 const StyledInstruction = styled.div`
   height: 20vh;
@@ -30,18 +29,15 @@ const InstructionText = styled.p`
 
 function Instruction() {
   const { id } = useParams();
-  const { data, isLoading } = useInstruction();
-  if (isLoading) return <Spinner />;
+  const { data } = useInstruction();
 
-  return data ? (
+  return (
     <StyledInstruction>
       <Container>
         <Heading>Алхам {id}</Heading>
         <InstructionText>{data[id - 1].instruction}</InstructionText>
       </Container>
     </StyledInstruction>
-  ) : (
-    <Spinner />
   );
 }
 

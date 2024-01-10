@@ -16,6 +16,15 @@ const AppError = require("./utils/AppError");
 const app = express();
 
 /* 1) GLOBAL MIDDLEWARES */
+/* CORS */
+app.use(
+  cors({
+    origin: ["http://localhost:5173"],
+    methods: ["GET", "POST", "PATCH", "DELETE"],
+    credentials: true,
+  })
+);
+
 /* Set security HTTP headers */
 app.use(helmet());
 
@@ -36,9 +45,6 @@ app.use("/api", limiter);
 /* Parsing request's body to json format */
 app.use(express.json({ limit: "10kb" }));
 app.use(cookieParser());
-
-/* CORS */
-app.use(cors());
 
 /* Data sanitization against NoSQL query injection */
 app.use(mongoSanitize());

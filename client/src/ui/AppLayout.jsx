@@ -8,7 +8,6 @@ import CssEditor from "../features/editor/CssEditor";
 import HtmlEditor from "../features/editor/HtmlEditor";
 import { useDebounce } from "../hooks/useDebounce";
 import { useInstruction } from "../context/InstructionContext";
-import Spinner from "./Spinner";
 import CheckButton from "../features/editor/CheckButton";
 import Modal from "./Modal";
 import toast from "react-hot-toast";
@@ -108,7 +107,7 @@ function AppLayout() {
     }
   };
 
-  return data ? (
+  return (
     <div style={{ height: "100vh", position: "relative" }}>
       {showModal && <Modal onShow={setShowModal} />}
       <SplitPane split="vertical" sizes={sizes} onChange={setSizes}>
@@ -147,8 +146,6 @@ function AppLayout() {
         </Pane>
       </SplitPane>
     </div>
-  ) : (
-    <Spinner />
   );
 }
 
