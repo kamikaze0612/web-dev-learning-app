@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import styled from "styled-components";
 import SplitPane, { Pane } from "split-pane-react";
+import axios from "axios";
 import "split-pane-react/esm/themes/default.css";
 
 import CssEditor from "../features/editor/CssEditor";
@@ -53,7 +54,7 @@ const Button = styled.span`
 
 function AppLayout() {
   const { id } = useParams();
-  const { data } = useInstruction();
+  const { data, dispatch, error } = useInstruction();
 
   // SHOWING FORM
   const [showModal, setShowModal] = useState(false);
@@ -94,9 +95,42 @@ function AppLayout() {
     setOutputValue(output);
   }, [cssDebounced, htmlDebounced]);
 
+  useEffect(() => {
+    async function fetchSteps() {
+      try {
+        dispatch({ type: "data/loading" });
+
+        const { data } = await axios.get(
+          "http://localhost:3000/api/v1/instructions",
+          {
+            withCredentials: true,
+          }
+        );
+        // console.log(data);
+        // const data = await res.json();
+
+        dispatch({ type: "data/loaded", payload: data.data.instructions });
+        // dispatch({ type: "data/loaded", payload: data });
+      } catch (err) {
+        // console.log(err)
+
+        dispatch({
+          type: "data/error",
+          payload: {
+            message: err.response.data.message,
+          },
+        });
+
+        throw new Error("Something went wrong!");
+      }
+    }
+
+    fetchSteps();
+  }, [dispatch]);
+
   const handleCheckCode = function () {
-    console.log(htmlValue.replaceAll(" ", "").replaceAll("\t", ""));
-    console.log(data?.[id - 1]?.checkingCode?.html);
+    // console.log(htmlValue.replaceAll(" ", "").replaceAll("\t", ""));
+    // console.log(data?.[id - 1]?.checkingCode?.html);
     if (
       htmlValue.replaceAll(" ", "").replaceAll("\t", "") ==
       data?.[id - 1]?.checkingCode?.html
@@ -106,6 +140,8 @@ function AppLayout() {
       toast.error("Дахин нэг удаа нягтална уу.");
     }
   };
+
+  if (!data) return <p>{error.message}</p>;
 
   return (
     <div style={{ height: "100vh", position: "relative" }}>

@@ -1,8 +1,10 @@
-import axios from "axios";
 import { useState } from "react";
-import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
 import styled from "styled-components";
+
+import FormRow from "../../ui/FormRow";
 
 const Container = styled.div`
   height: 100vh;
@@ -27,16 +29,6 @@ const Form = styled.form`
 const Heading = styled.h2`
   font-size: 3rem;
   color: var(--color-grey-800);
-`;
-
-const FormRow = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-`;
-
-const Label = styled.label`
-  color: var(--color-grey-900);
 `;
 
 const Input = styled.input`
@@ -74,7 +66,7 @@ function Login() {
 
     if (res.statusText === "OK") {
       toast.success("Logged in successfully");
-      navigate("/");
+      setTimeout(() => navigate("/"), 1000);
     }
   };
 
@@ -82,8 +74,7 @@ function Login() {
     <Container>
       <Form onSubmit={handleSubmit}>
         <Heading>Log In</Heading>
-        <FormRow>
-          <Label htmlFor="email">Enter your email</Label>
+        <FormRow htmlFor="email" label="Email">
           <Input
             onChange={(e) => setEmail(e.target.value)}
             type="text"
@@ -92,8 +83,7 @@ function Login() {
           />
         </FormRow>
 
-        <FormRow>
-          <Label htmlFor="password">Enter your password</Label>
+        <FormRow htmlFor="password" label="Password">
           <Input
             onChange={(e) => setPassword(e.target.value)}
             type="password"

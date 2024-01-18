@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import axios from "axios";
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useReducer } from "react";
 
 const InstructionContext = createContext();
 
 const initialState = {
   data: null,
   isLoading: false,
+  error: "",
 };
 
 const reducer = (state, action) => {
@@ -22,40 +22,28 @@ const reducer = (state, action) => {
         ...state,
         data: action.payload,
         isLoading: false,
+        error: "",
       };
+
+    case "data/error":
+      return {
+        ...state,
+        error: action.payload,
+      };
+
+    default:
+      return { ...state };
   }
 };
 
 export default function InstructionProvider({ children }) {
-  const [{ data, isLoading }, dispatch] = useReducer(reducer, initialState);
-
-  useEffect(() => {
-    async function fetchSteps() {
-      try {
-        dispatch({ type: "data/loading" });
-
-        const { data } = await axios.get(
-          "http://localhost:3000/api/v1/instructions",
-          {
-            withCredentials: true,
-          }
-        );
-        console.log(data);
-        // const data = await res.json();
-
-        dispatch({ type: "data/loaded", payload: data.data.instructions });
-        // dispatch({ type: "data/loaded", payload: data });
-      } catch (err) {
-        console.log(err);
-        throw new Error("Something went wrong!");
-      }
-    }
-
-    fetchSteps();
-  }, [dispatch]);
+  const [{ data, isLoading, error }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   return (
-    <InstructionContext.Provider value={{ data, isLoading, dispatch }}>
+    <InstructionContext.Provider value={{ data, error, isLoading, dispatch }}>
       {children}
     </InstructionContext.Provider>
   );
