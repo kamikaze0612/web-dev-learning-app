@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import styled from "styled-components";
 
 import FormRow from "../../ui/FormRow";
+import { LIVE_URL } from "../../ui/AppLayout";
 
 const Container = styled.div`
   height: 100vh;
@@ -56,7 +57,7 @@ function Login() {
 
     const res = await axios({
       method: "post",
-      url: "http://localhost:3000/api/v1/users/login",
+      url: `${LIVE_URL}/api/v1/users/login`,
       withCredentials: true,
       data: {
         email: email,
@@ -64,7 +65,9 @@ function Login() {
       },
     });
 
-    if (res.statusText === "OK") {
+    console.log(res);
+
+    if (res.status == 200) {
       toast.success("Logged in successfully");
       setTimeout(() => navigate("/"), 1000);
     }

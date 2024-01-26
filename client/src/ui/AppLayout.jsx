@@ -52,6 +52,8 @@ const Button = styled.span`
   }
 `;
 
+export const LIVE_URL = "https://web-dev-learning-app.onrender.com";
+
 function AppLayout() {
   const { id } = useParams();
   const { data, dispatch, error } = useInstruction();
@@ -100,12 +102,9 @@ function AppLayout() {
       try {
         dispatch({ type: "data/loading" });
 
-        const { data } = await axios.get(
-          "http://localhost:3000/api/v1/instructions",
-          {
-            withCredentials: true,
-          }
-        );
+        const { data } = await axios.get(`${LIVE_URL}/api/v1/instructions`, {
+          withCredentials: true,
+        });
         // console.log(data);
         // const data = await res.json();
 

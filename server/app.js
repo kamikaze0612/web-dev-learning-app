@@ -19,7 +19,7 @@ const app = express();
 /* CORS */
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: "https://web-dev-learning.netlify.app",
     methods: ["GET", "POST", "PATCH", "DELETE"],
     credentials: true,
   })
