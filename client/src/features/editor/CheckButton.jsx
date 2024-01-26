@@ -18,7 +18,7 @@ const StyledCheckButton = styled.button`
 
 function CheckButton({ onCheck }) {
   return (
-    <StyledCheckButton onClick={() => onCheck()}>Check code</StyledCheckButton>
+    <StyledCheckButton onClick={() => onCheck()}>Шалгах</StyledCheckButton>
   );
 }
 

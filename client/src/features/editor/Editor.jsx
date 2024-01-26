@@ -7,6 +7,8 @@ import "ace-builds/src-noconflict/theme-monokai";
 function Editor({ mode, title, onChange, value }) {
   return (
     <AceEditor
+      wrapEnabled={true}
+      enableSnippets={true}
       onChange={onChange}
       mode={mode}
       theme="xcode"
