@@ -27,6 +27,8 @@ const createSendToken = (user, statusCode, res) => {
     ),
     httpOnly: true,
     withCredentials: true,
+    sameSite: "none",
+    secure: true,
   };
 
   if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
@@ -61,7 +63,6 @@ exports.signup = catchAsync(async (req, res, next) => {
 });
 
 exports.login = catchAsync(async (req, res, next) => {
-  console.log(req);
   const { email: reqEmail, password: reqPassword } = req.body;
 
   /* 1) Checking whether email or password exist */
