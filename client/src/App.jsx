@@ -14,7 +14,8 @@ function App() {
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route index element={<Navigate to="/login" />} />
+          <Route path="/home" element={<Homepage />} />
           <Route path="/lesson" element={<AppLayout />}>
             <Route index element={<Navigate to="step/1" replace />} />
             <Route path="step/:id" element={<Instruction />} />

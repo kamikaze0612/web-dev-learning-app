@@ -52,7 +52,7 @@ const Button = styled.span`
   }
 `;
 
-export const LIVE_URL = "https://web-dev-learning-app.onrender.com";
+export const LIVE_URL = "http://127.0.0.1:3000";
 
 function AppLayout() {
   const { id } = useParams();

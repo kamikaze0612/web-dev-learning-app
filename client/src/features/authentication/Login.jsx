@@ -47,14 +47,16 @@ const SubmitButton = styled.button`
 `;
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("demo@example.com");
+  const [password, setPassword] = useState("pass1234");
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    setIsLoading(true);
     const res = await axios({
       method: "post",
       url: `${LIVE_URL}/api/v1/users/login`,
@@ -65,11 +67,10 @@ function Login() {
       },
     });
 
-    console.log(res);
-
+    setIsLoading(false);
     if (res.status == 200) {
       toast.success("Logged in successfully");
-      setTimeout(() => navigate("/"), 1000);
+      setTimeout(() => navigate("/home"), 1000);
     }
   };
 
@@ -83,6 +84,7 @@ function Login() {
             type="text"
             name="email"
             id="email"
+            defaultValue="demo@example.com"
           />
         </FormRow>
 
@@ -92,9 +94,12 @@ function Login() {
             type="password"
             name="password"
             id="password"
+            defaultValue="pass1234"
           />
         </FormRow>
-        <SubmitButton type="submit">Log in</SubmitButton>
+        <SubmitButton type="submit">
+          {isLoading ? "Logging in..." : "Log in"}
+        </SubmitButton>
       </Form>
     </Container>
   );
